@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <title>Main page</title>
+</head>
+<body>
+    <h1 class = "main_title">TODO</h1>
+
+    <form id="to_login" action="/i" method="get">
+        <div class="start">
+            <button class="btn" form="to_login">Sign in</button>
+        </div>
+    </form>
+
+    <form id="to_reg" action="/r" method="get">
+        <div class="start">
+            <button class="btn" form="to_reg">Sign up</button>
+        </div>
+    </form>
+
+
+</body>
+</html>

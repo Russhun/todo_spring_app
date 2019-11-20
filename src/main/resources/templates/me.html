@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <title>Cab</title>
+</head>
+<body>
+<h1>User Info</h1>
+<h2 th:text="${#httpSession.getAttribute(userConstants.USER_NAME)}"></h2>
+<ul>
+    <th:block th:each="memo: ${memos}">
+        <li th:text="${memo.getText()}"></li>
+    </th:block>
+</ul>
+</body>
+</html>

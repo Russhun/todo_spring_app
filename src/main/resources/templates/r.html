@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/r_style.css}">
+    <title>Sign up</title>
+</head>
+<body>
+    <div class="form_div">
+        <form id="reg_form" th:object="${regForm}" action="/reg" method="post">
+            <div class="reg_div">
+                <input id="login_input_reg" class="login_input_reg" name="user_name" maxlength="10" minlength="3"
+                       th:field="*{userName}" onkeyup="f();" placeholder="Nickname" required/>
+                <label id="chars_alert_label" for="login_input_reg" hidden>Illegal characters</label>
+            </div>
+            <script lang="JavaScript">
+                function f() {
+                    var text_login = document.getElementById("login_input_reg");
+                    var regexp_text=/['0-9:;,./?|\\\[\]{}\-=+*&^%$#№!~`<>@)(" ]/;
+                    if (regexp_text.test(text_login.value))
+                        text_login.value = text_login.value.replace(/['0-9:;,./?|\\\[\]{}\-=+*&^%$#№!~`<>@)(" ]/g, "");
+                }
+            </script>
+            <div class="reg_div">
+                <label>
+                    <input class="password_input_reg" name="user_password"
+                           type="password" th:field="*{password}" placeholder="Password" minlength="6" required/>
+                </label>
+            </div>
+            <div class="reg_div">
+                <button class="btn" type="submit" form="reg_form">Sign up</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
