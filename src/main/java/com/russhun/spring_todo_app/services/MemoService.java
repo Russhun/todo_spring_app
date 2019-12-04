@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+
+// TODO update it
+@Deprecated
 public class MemoService {
 
     @Autowired

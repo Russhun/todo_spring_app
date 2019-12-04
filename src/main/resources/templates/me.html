@@ -9,7 +9,7 @@
 
     <ul class="menu_ul">
         <li onclick="f()" class="menu_li left_menu_li add_memo_li"><a>Добавить</a></li>
-        <li class="menu_li right_menu_li"><a>Выйти</a></li>
+        <li class="menu_li right_menu_li"><a href="/logout">Выйти</a></li>
         <li class="menu_li right_menu_li"><a th:text="${#httpSession.getAttribute(userConstants.USER_NAME)}"></a></li>
     </ul>
 
@@ -35,6 +35,8 @@
             </form>
         </th:block>
     </div>
+
+    <form id="logout_"></form>
     <script lang="JavaScript">
         var visib = false;
         function f() {

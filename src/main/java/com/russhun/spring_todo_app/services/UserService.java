@@ -4,7 +4,8 @@ import com.russhun.spring_todo_app.models.User;
 import com.russhun.spring_todo_app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+// TODO update it
+@Deprecated
 public class UserService {
 
     @Autowired

@@ -5,8 +5,6 @@ import com.russhun.spring_todo_app.Constants.UserConstants;
 import com.russhun.spring_todo_app.forms.LoginForm;
 import com.russhun.spring_todo_app.models.User;
 import com.russhun.spring_todo_app.repositories.UserRepository;
-import com.russhun.spring_todo_app.services.UserService;
-import com.russhun.spring_todo_app.utils.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -47,13 +45,21 @@ public class LoginController {
     @RequestMapping(value = {"/i"}, method = RequestMethod.GET)
     public String loginChecker(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
-        if (session.getAttribute(UserConstants.USER_NAME) == null)
-        {
+        if (session.getAttribute(UserConstants.USER_NAME) == null) {
             model.addAttribute("loginForm", new LoginForm());
             return "i";
         }
         else
             return "redirect:/me";
+    }
+
+    @RequestMapping(value = {"/logout"})
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (session.getAttribute(UserConstants.USER_NAME) != null) {
+            session.removeAttribute(UserConstants.USER_NAME);
+        }
+        return "redirect:/";
     }
 
 }
