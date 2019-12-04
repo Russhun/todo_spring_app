@@ -30,7 +30,6 @@ public class LoginController {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         try {
             User user = this.userRepository.findByName(loginForm.getUserName());
-            System.out.println();
             if (user != null)
             {
                 if ((user.getName() != null) &&

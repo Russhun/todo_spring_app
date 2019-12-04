@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/cab_style.css}">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
   <title>Cab</title>
 </head>
 <body>
-<h1>User Info</h1>
-<h2 th:text="${#httpSession.getAttribute(userConstants.USER_NAME)}"></h2>
-<ul>
-    <th:block th:each="memo: ${memos}">
-        <li th:text="${memo.getText()}"></li>
-    </th:block>
-</ul>
+
+    <ul class="menu_ul">
+        <li onclick="f()" class="menu_li left_menu_li add_memo_li"><a>Добавить</a></li>
+        <li class="menu_li right_menu_li"><a>Выйти</a></li>
+        <li class="menu_li right_menu_li"><a th:text="${#httpSession.getAttribute(userConstants.USER_NAME)}"></a></li>
+    </ul>
+
+    <div id="add_memo_body" class="add_memo_body">
+        <form action="#" th:action="@{/memo/add}" th:object="${memoForm}" method="post">
+            <label class="memo_title_input"><input th:field="*{title}" placeholder="Memo title" maxlength="12"/></label>
+            <label>
+                <textarea th:field="*{text}"
+                          maxlength="128" rows="7" cols="45" placeholder="Memo text" class="memo_text_area"></textarea>
+            </label>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <div class="memo_body">
+        <th:block th:each="memo: ${memos}">
+            <form action="#" th:action="@{/memo/del}" method="post">
+                <div class="memo_div">
+                    <h2 th:text="${memo.getTitle()}"></h2>
+                    <p th:text="${memo.getText()}"></p>
+                    <button type="submit" th:name="memoId" th:value="${memo.getId()}">Удалить</button>
+                </div>
+            </form>
+        </th:block>
+    </div>
+    <script lang="JavaScript">
+        var visib = false;
+        function f() {
+            var elem = document.getElementById("add_memo_body");
+            if (!visib)
+            {
+                elem.style.display = "flex";
+                visib = true;
+
+            }
+            else
+            {
+                elem.style.display = "none";
+                visib = false;
+            }
+        }
+
+    </script>
+
 </body>
 </html>

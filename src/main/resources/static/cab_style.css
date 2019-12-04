@@ -1,0 +1,130 @@
+@keyframes open {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+ul.menu_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+li.left_menu_li {
+    float: left;
+}
+
+
+li.menu_li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+
+}
+
+li a:hover:not(.active) {
+    background-color: #111111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+/*li.add_memo_li:active + div.add_memo_body{*/
+
+/*    visibility: visible;*/
+/*    transition: 0s;*/
+
+/*}*/
+
+#add_memo_body {
+
+    height: 500px;
+    width: 20%;
+    margin: 5px;
+    flex-flow: column;
+    display: none;
+    background-color: #333333;
+    position: fixed;
+    float: left;
+    animation-name: open;
+    animation-duration: 1s;
+    border-radius: 4px;
+    z-index: 1;
+    min-width: 250px;
+}
+
+
+.memo_text_area {
+    resize: none;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+
+.memo_title_input {
+
+    align-self: flex-start;
+    margin-left: 20%;
+    margin-top: 10px;
+
+}
+
+li.right_menu_li {
+    float: right;
+}
+
+div.memo_div {
+    width: 300px;	height: 200px;
+    background: lightpink;
+    border: 2px solid #ffe2e6;
+    border-radius: 10px;
+    margin: 10px auto;
+    display: flex;
+    flex-flow: column;
+    z-index: 2;
+
+}
+
+
+div.memo_div h2 {
+    border-bottom: 2px solid #f25972;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+}
+
+div.memo_div p {
+    font-family: Montserrat, sans-serif;
+    overflow-x: hidden;
+}
+
+
+div.memo_div button {
+    alignment: center;
+    font-family: Montserrat, sans-serif;
+    background-color: #444444;
+    color: lightpink;
+    width: 40%;
+    height: 15%;
+    align-self: center;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(montserrat/montserrat.ttf);
+}

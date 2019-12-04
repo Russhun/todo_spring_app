@@ -10,4 +10,6 @@ import java.util.List;
 public interface MemoRepository extends CrudRepository<Memo, Integer> {
 
     ArrayList<Memo> findAllByUser(User user);
+    Memo findById(int id);
+
 }

@@ -1,6 +1,7 @@
 package com.russhun.spring_todo_app.controllers;
 
 import com.russhun.spring_todo_app.Constants.UserConstants;
+import com.russhun.spring_todo_app.forms.MemoForm;
 import com.russhun.spring_todo_app.models.Memo;
 import com.russhun.spring_todo_app.models.User;
 import com.russhun.spring_todo_app.repositories.MemoRepository;
@@ -36,8 +37,7 @@ public class UserAccountController {
             else
                 model.addAttribute("memos", new ArrayList<Memo>());
         } catch (Exception e){e.printStackTrace();}
+        model.addAttribute("memoForm", new MemoForm());
         return "me";
     }
-
-
 }

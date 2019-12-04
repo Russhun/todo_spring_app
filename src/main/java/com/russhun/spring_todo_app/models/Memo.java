@@ -9,8 +9,11 @@ public class Memo {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "text")
     private String text;
@@ -20,6 +23,12 @@ public class Memo {
     private User user;
 
     public Memo(){}
+
+    public Memo(String title, String text, User user) {
+        this.title = title;
+        this.text = text;
+        this.user = user;
+    }
 
     public Memo(String text) {
         this.text = text;
@@ -39,5 +48,13 @@ public class Memo {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
